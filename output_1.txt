@@ -1,0 +1,74 @@
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 3 and a 4.
+You move 7 spaces. You are now at space 7 on lap 1.
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 5 and a 6.
+You move 11 spaces. You are now at space 11 on lap 1.
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 6 and a 6.
+You move 12 spaces. You are now at space 19 on lap 1.
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 4 and a 3.
+You move 7 spaces. You are now at space 18 on lap 1.
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 1 and a 1.
+You move 2 spaces. You are now at space 1 on lap 2.
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 2 and a 4.
+You move 6 spaces. You are now at space 4 on lap 2.
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 3 and a 5.
+You move 8 spaces. You are now at space 9 on lap 2.
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 1 and a 3.
+You move 4 spaces. You are now at space 8 on lap 2.
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 4 and a 1.
+You move 5 spaces. You are now at space 14 on lap 2.
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 4 and a 5.
+You move 9 spaces. You are now at space 17 on lap 2.
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 2 and a 4.
+You move 6 spaces. You are now at space 0 on lap 3.
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 1 and a 4.
+You move 5 spaces. You are now at space 2 on lap 3.
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 1 and a 4.
+You move 5 spaces. You are now at space 5 on lap 3.
+You are now trapped!
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 6 and a 2.
+You move 8 spaces. You are now at space 10 on lap 3.
+You are now trapped!
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 1 and a 4.
+You are still stuck in the trap!
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 1 and a 1.
+You have escaped from the trap! You can move again next turn.
+
+Player 1, it is your turn. Press enter to roll the dice!
+Player 1, you rolled a 2 and a 1.
+You are still stuck in the trap!
+
+Player 2, it is your turn. Press enter to roll the dice!
+Player 2, you rolled a 6 and a 6.
+You move 12 spaces. You are now at space 2 on lap 4.
+Player 2, you have won the game!
