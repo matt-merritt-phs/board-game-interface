@@ -24,9 +24,8 @@ pygame.font.init()
 arial_font = pygame.font.SysFont('Arial', 36)
 
 # text surfaces
-text_contents = []
-text_locations = [(SCREEN_SIZE / 2, SCREEN_SIZE - OFFSET / 2)]
-text_contents.append("")
+text_contents = ["", "Player 1 Lap: 1", "Player 2 Lap: 1"]
+text_locations = [(SCREEN_SIZE / 2, SCREEN_SIZE - OFFSET / 2), (SCREEN_SIZE / 4, OFFSET / 2), (3 * SCREEN_SIZE / 4, OFFSET / 2)]
 
 # building the board spaces
 spaces = []
@@ -83,12 +82,13 @@ def input_loop():
                 # nothing happens if stuck in a trap, only care about escape
                 if "escape" in line:
                     player_trapped[current_player] = False
-            # 
+            # otherwise, it was a move that we should track
             else:
                 move = clean_number(words[2])
                 space = clean_number(words[9])
                 lap = clean_number(words[12])
                 player_positions[current_player] = space
+                text_contents[1 + current_player] = f"Player {1 + current_player} Lap: {lap}"
         # if reading fourth line, it can only mean that you were trapped 
         #   or won the game
         elif line_num == 4:
@@ -96,6 +96,8 @@ def input_loop():
                 player_trapped[current_player] = True
             else:
                 winners[current_player] = True
+                winner_number = winners.index(True) + 1
+                text_contents[0] = f"Player {winner_number} has won the game!"
 
         # move counter for next line
         line_num += 1
@@ -121,10 +123,6 @@ def input_loop():
             player_location = (player_space[0] + SPACE_LENGTH / 2 + player_offsets[player_i][0], player_space[1] + SPACE_LENGTH / 2 + player_offsets[player_i][1])
 
             pygame.draw.circle(screen, player_colors[player_i], player_location, PLAYER_RADIUS)
-
-        if True in winners:
-            winner_number = winners.index(True) + 1
-            text_contents[0] = f"Player {winner_number} has won the game!"
 
 # TODO: determine if threading can fix issues with window locking
 def main_loop():
