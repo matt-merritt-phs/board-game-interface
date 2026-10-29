@@ -20,6 +20,13 @@ pygame.init()
 screen = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
 pygame.display.set_caption("Board Game Visualization")
 
+pygame.font.init()
+arial_font = pygame.font.SysFont('Arial', 36)
+
+# text surfaces
+text_contents = ["", "Player 1 Lap: 1", "Player 2 Lap: 1"]
+text_locations = [(SCREEN_SIZE / 2, SCREEN_SIZE - OFFSET / 2), (SCREEN_SIZE / 4, OFFSET / 2), (3 * SCREEN_SIZE / 4, OFFSET / 2)]
+
 # building the board spaces
 spaces = []
 for i in range(20):
@@ -44,6 +51,7 @@ def input_loop():
     player_trapped = [False, False]
     player_offsets = [(-PLAYER_RADIUS - PLAYER_GAP / 2, 0), (PLAYER_RADIUS + PLAYER_GAP / 2, 0)]
     player_colors = [(0, 0, 255), (255, 0, 0)]
+    winners = [False, False]
 
     line_num = 1
     current_player = 0
@@ -74,23 +82,29 @@ def input_loop():
                 # nothing happens if stuck in a trap, only care about escape
                 if "escape" in line:
                     player_trapped[current_player] = False
-            # 
+            # otherwise, it was a move that we should track
             else:
                 move = clean_number(words[2])
                 space = clean_number(words[9])
                 lap = clean_number(words[12])
                 player_positions[current_player] = space
+                text_contents[1 + current_player] = f"Player {1 + current_player} Lap: {lap}"
         # if reading fourth line, it can only mean that you were trapped 
         #   or won the game
         elif line_num == 4:
             if "won" not in line:
                 player_trapped[current_player] = True
+            else:
+                winners[current_player] = True
+                winner_number = winners.index(True) + 1
+                text_contents[0] = f"Player {winner_number} has won the game!"
 
         # move counter for next line
         line_num += 1
 
         # clear the screen
         screen.fill((255, 255, 255))
+        
 
         # draw game board
         for space in spaces:
@@ -110,7 +124,6 @@ def input_loop():
 
             pygame.draw.circle(screen, player_colors[player_i], player_location, PLAYER_RADIUS)
 
-
 # TODO: determine if threading can fix issues with window locking
 def main_loop():
     running = True
@@ -118,6 +131,12 @@ def main_loop():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
+        for i in range(len(text_contents)):
+            surface = arial_font.render(text_contents[i], False, (0, 0, 0))
+            text_size = arial_font.size(text_contents[i])
+            centered_location = (text_locations[i][0] - text_size[0] / 2, text_locations[i][1] - text_size[1] / 2)
+            screen.blit(surface, centered_location)
 
         # update display
         pygame.display.update()
